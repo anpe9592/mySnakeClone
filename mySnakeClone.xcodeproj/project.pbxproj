@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC4481D71DFB0A1500643B5E /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC4481D41DFB0A1500643B5E /* game.cpp */; };
 		BCE600FC1DF89CF50073D7F5 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCE600FB1DF89CF50073D7F5 /* main.cpp */; };
+		BCE601061DF8A3140073D7F5 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE601051DF8A3140073D7F5 /* SDL2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +25,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BC4481D41DFB0A1500643B5E /* game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = game.cpp; sourceTree = "<group>"; };
+		BC4481D51DFB0A1500643B5E /* game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game.h; sourceTree = "<group>"; };
 		BCE600F81DF89CF50073D7F5 /* mySnakeClone */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mySnakeClone; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCE600FB1DF89CF50073D7F5 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		BCE601031DF8A3010073D7F5 /* TMAppCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TMAppCommon.framework; path = ../../../../../Library/Frameworks/TMAppCommon.framework; sourceTree = "<group>"; };
+		BCE601051DF8A3140073D7F5 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCE601061DF8A3140073D7F5 /* SDL2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +50,7 @@
 			children = (
 				BCE600FA1DF89CF50073D7F5 /* mySnakeClone */,
 				BCE600F91DF89CF50073D7F5 /* Products */,
+				BCE601021DF8A3010073D7F5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +65,20 @@
 		BCE600FA1DF89CF50073D7F5 /* mySnakeClone */ = {
 			isa = PBXGroup;
 			children = (
+				BC4481D41DFB0A1500643B5E /* game.cpp */,
+				BC4481D51DFB0A1500643B5E /* game.h */,
 				BCE600FB1DF89CF50073D7F5 /* main.cpp */,
 			);
 			path = mySnakeClone;
+			sourceTree = "<group>";
+		};
+		BCE601021DF8A3010073D7F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BCE601051DF8A3140073D7F5 /* SDL2.framework */,
+				BCE601031DF8A3010073D7F5 /* TMAppCommon.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCE600FC1DF89CF50073D7F5 /* main.cpp in Sources */,
+				BC4481D71DFB0A1500643B5E /* game.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +236,10 @@
 		BCE601001DF89CF50073D7F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -223,6 +247,10 @@
 		BCE601011DF89CF50073D7F5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -246,6 +274,7 @@
 				BCE601011DF89CF50073D7F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
