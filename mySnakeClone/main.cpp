@@ -2,7 +2,8 @@
  TODO...
  
  * [done]create a window. size 640 480. black background.
- * draw a white dot. SNAKE.
+ * [done]draw a white dot. SNAKE.
+ * center the snake dot
  * make the dot move on it's own.
  * make snake move on user input
  * add collision detection. stop snake dot move out of window

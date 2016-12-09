@@ -34,7 +34,7 @@ bool Game::init() {
 
 void Game::render() {
     // Render objects
-    //dot.render(mRenderer);
+    snake.render(mRenderer);
     
     // Update screen
     SDL_RenderPresent(mRenderer);
@@ -42,7 +42,7 @@ void Game::render() {
 
 void Game::update() {
     // Move the dot
-    //dot.move(mScreenWidth, mScreenHight);
+    //snake.move(mScreenWidth, mScreenHight);
     
     // Clear screen
     SDL_SetRenderDrawColor(mRenderer, 0x00, 0x00, 0x00, 0x00);
@@ -59,7 +59,7 @@ void Game::handleEvents() {
         }
         
         // Handle input for the dot
-        //dot.handleEvent(event);
+        //snake.handleEvent(event);
     }
 }
 

@@ -1,9 +1,11 @@
-#ifndef game_hpp
-#define game_hpp
+#ifndef game_h
+#define game_h
 
 #include <iostream>
 
 #include <SDL2/SDL.h>
+
+#include "snake.h"
 
 class Game {
 public:
@@ -33,7 +35,7 @@ private:
     int mScreenWidth, mScreenHight;     // The windows width and height
     int mFlags;                         // Window Flag
     
-    //Dot dot;
+    Snake snake;
     
 };
 

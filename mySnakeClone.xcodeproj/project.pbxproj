@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BC4481D71DFB0A1500643B5E /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC4481D41DFB0A1500643B5E /* game.cpp */; };
+		BC6936161DFB0D23008A8180 /* snake.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC6936141DFB0D23008A8180 /* snake.cpp */; };
 		BCE600FC1DF89CF50073D7F5 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCE600FB1DF89CF50073D7F5 /* main.cpp */; };
 		BCE601061DF8A3140073D7F5 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE601051DF8A3140073D7F5 /* SDL2.framework */; };
 /* End PBXBuildFile section */
@@ -27,6 +28,8 @@
 /* Begin PBXFileReference section */
 		BC4481D41DFB0A1500643B5E /* game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = game.cpp; sourceTree = "<group>"; };
 		BC4481D51DFB0A1500643B5E /* game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game.h; sourceTree = "<group>"; };
+		BC6936141DFB0D23008A8180 /* snake.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = snake.cpp; sourceTree = "<group>"; };
+		BC6936151DFB0D23008A8180 /* snake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = snake.h; sourceTree = "<group>"; };
 		BCE600F81DF89CF50073D7F5 /* mySnakeClone */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mySnakeClone; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCE600FB1DF89CF50073D7F5 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		BCE601031DF8A3010073D7F5 /* TMAppCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TMAppCommon.framework; path = ../../../../../Library/Frameworks/TMAppCommon.framework; sourceTree = "<group>"; };
@@ -68,6 +71,8 @@
 				BC4481D41DFB0A1500643B5E /* game.cpp */,
 				BC4481D51DFB0A1500643B5E /* game.h */,
 				BCE600FB1DF89CF50073D7F5 /* main.cpp */,
+				BC6936141DFB0D23008A8180 /* snake.cpp */,
+				BC6936151DFB0D23008A8180 /* snake.h */,
 			);
 			path = mySnakeClone;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCE600FC1DF89CF50073D7F5 /* main.cpp in Sources */,
+				BC6936161DFB0D23008A8180 /* snake.cpp in Sources */,
 				BC4481D71DFB0A1500643B5E /* game.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
