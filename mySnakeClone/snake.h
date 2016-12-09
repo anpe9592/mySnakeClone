@@ -10,6 +10,7 @@ public:
     Snake():
     mPosX(0), mPosY(0), mVelX(0), mVelY(0) { }
     
+    void setPos(int x, int y);
     void render(SDL_Renderer* renderer);
     
     static const int SNAKE_WIDTH = 20;
