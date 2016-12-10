@@ -41,8 +41,8 @@ void Game::render() {
 }
 
 void Game::update() {
-    // Move the dot
-    //snake.move(mScreenWidth, mScreenHight);
+    // Move the snake
+    snake.move(mScreenWidth, mScreenHight);
     
     // Clear screen
     SDL_SetRenderDrawColor(mRenderer, 0x00, 0x00, 0x00, 0x00);
