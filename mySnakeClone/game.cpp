@@ -59,7 +59,7 @@ void Game::handleEvents() {
         }
         
         // Handle input for the dot
-        //snake.handleEvent(event);
+        snake.handleEvent(event);
     }
 }
 

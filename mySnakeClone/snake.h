@@ -12,6 +12,7 @@ public:
     
     void setPos(int x, int y);
     
+    void handleEvent(SDL_Event& event);     // Takes key input and adept the snakes velocity
     void move(int width, int height);       // Move the snake
     void render(SDL_Renderer* renderer);    // Draw snake on to screen
     
