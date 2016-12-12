@@ -10,10 +10,10 @@ void Snake::handleEvent(SDL_Event& event) {
     // Key pressed down
     if (event.type == SDL_KEYDOWN && event.key.repeat == 0) {
         switch (event.key.keysym.sym) {
-            case SDLK_UP:    mVelY -= SNAKE_VEL; break;
-            case SDLK_DOWN:  mVelY += SNAKE_VEL; break;
-            case SDLK_LEFT:  mVelX -= SNAKE_VEL; break;
-            case SDLK_RIGHT: mVelX += SNAKE_VEL; break;
+            case SDLK_UP:    mVelY = -SNAKE_VEL; break;
+            case SDLK_DOWN:  mVelY = +SNAKE_VEL; break;
+            case SDLK_LEFT:  mVelX = -SNAKE_VEL; break;
+            case SDLK_RIGHT: mVelX = +SNAKE_VEL; break;
         }
     }
 }
@@ -44,7 +44,8 @@ void Snake::move(int width, int height) {
     
     // Check if the snake moved to far up or down
     if ((mPosY < 0) || (mPosY + SNAKE_HEIGHT > height)) {
-        // Move back
+        mPosY -= mVelX;
+        /*// Move back
         if (!hit) {
             //mPosY -= mVelY;
             mPosY = 0;
@@ -52,7 +53,7 @@ void Snake::move(int width, int height) {
         } else {
             mPosY = 0;
             hit = false;
-        }
+        }*/
     }
 }
 
