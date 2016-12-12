@@ -26,16 +26,9 @@ void Snake::move(int width, int height) {
     //mPosX += SNAKE_VEL;
     
     // Check if the snake moved to far left or right
-    if ((mPosX < 0) || (mPosX + SNAKE_WIDTH > width)) {
+    if ((mPosX < 40) || (mPosX + SNAKE_WIDTH > width)) {
         // Move back
-        if (!hit) {
-            //mPosX -= mVelX;
-            mPosX = 0;
-            hit = true;
-        } else {
-            mPosX = 0;
-            hit = false;
-        }
+        mPosX -= mVelX;
     }
     
     hit = false;
@@ -43,17 +36,9 @@ void Snake::move(int width, int height) {
     mPosY += mVelY;
     
     // Check if the snake moved to far up or down
-    if ((mPosY < 0) || (mPosY + SNAKE_HEIGHT > height)) {
-        mPosY -= mVelX;
-        /*// Move back
-        if (!hit) {
-            //mPosY -= mVelY;
-            mPosY = 0;
-            hit = true;
-        } else {
-            mPosY = 0;
-            hit = false;
-        }*/
+    if ((mPosY < 40) || (mPosY + SNAKE_HEIGHT > height)) {
+        // Move back
+        mPosY -= mVelY;
     }
 }
 
