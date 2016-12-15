@@ -8,7 +8,7 @@
 class Snake {
 public:
     Snake():
-    mPosX(0), mPosY(0), mVelX(0), mVelY(0), hit(false) { }
+    mPosX(0), mPosY(0), mVelX(0), mVelY(0), hit(false) { mVelX = SNAKE_VEL; }
     
     void setPos(int x, int y);
     

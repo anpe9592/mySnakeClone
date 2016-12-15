@@ -10,10 +10,22 @@ void Snake::handleEvent(SDL_Event& event) {
     // Key pressed down
     if (event.type == SDL_KEYDOWN && event.key.repeat == 0) {
         switch (event.key.keysym.sym) {
-            case SDLK_UP:    mVelY = -SNAKE_VEL; break;
-            case SDLK_DOWN:  mVelY = +SNAKE_VEL; break;
-            case SDLK_LEFT:  mVelX = -SNAKE_VEL; break;
-            case SDLK_RIGHT: mVelX = +SNAKE_VEL; break;
+            case SDLK_UP:
+                mVelX = 0;
+                mVelY = -SNAKE_VEL;
+            break;
+            case SDLK_DOWN:
+                mVelX = 0;
+                mVelY = +SNAKE_VEL;
+            break;
+            case SDLK_LEFT:
+                mVelY = 0;
+                mVelX = -SNAKE_VEL;
+            break;
+            case SDLK_RIGHT:
+                mVelY = 0;
+                mVelX = +SNAKE_VEL;
+            break;
         }
     }
 }
