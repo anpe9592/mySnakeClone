@@ -11,6 +11,7 @@
 		BC6936161DFB0D23008A8180 /* snake.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC6936141DFB0D23008A8180 /* snake.cpp */; };
 		BCE600FC1DF89CF50073D7F5 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCE600FB1DF89CF50073D7F5 /* main.cpp */; };
 		BCE601061DF8A3140073D7F5 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE601051DF8A3140073D7F5 /* SDL2.framework */; };
+		BCFC65181E06EC4600AA1B60 /* mouse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCFC65161E06EC4600AA1B60 /* mouse.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +35,8 @@
 		BCE600FB1DF89CF50073D7F5 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		BCE601031DF8A3010073D7F5 /* TMAppCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TMAppCommon.framework; path = ../../../../../Library/Frameworks/TMAppCommon.framework; sourceTree = "<group>"; };
 		BCE601051DF8A3140073D7F5 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
+		BCFC65161E06EC4600AA1B60 /* mouse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mouse.cpp; sourceTree = "<group>"; };
+		BCFC65171E06EC4600AA1B60 /* mouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mouse.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,8 @@
 				BCE600FB1DF89CF50073D7F5 /* main.cpp */,
 				BC6936141DFB0D23008A8180 /* snake.cpp */,
 				BC6936151DFB0D23008A8180 /* snake.h */,
+				BCFC65161E06EC4600AA1B60 /* mouse.cpp */,
+				BCFC65171E06EC4600AA1B60 /* mouse.h */,
 			);
 			path = mySnakeClone;
 			sourceTree = "<group>";
@@ -146,6 +151,7 @@
 				BCE600FC1DF89CF50073D7F5 /* main.cpp in Sources */,
 				BC6936161DFB0D23008A8180 /* snake.cpp in Sources */,
 				BC4481D71DFB0A1500643B5E /* game.cpp in Sources */,
+				BCFC65181E06EC4600AA1B60 /* mouse.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
