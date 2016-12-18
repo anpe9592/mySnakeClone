@@ -1,20 +1,23 @@
 
+#include <random>
 #include "mouse.h"
+
+int mouseRandPos(int pos) {
+    // Seed with a real random value, if available
+    std::random_device r;
+    
+    // Choose a random mean between 40 and pos
+    std::default_random_engine e1(r());
+    std::uniform_int_distribution<int> uniform_dist(40, pos);
+    
+    return uniform_dist(e1);
+}
 
 void Mouse::move(int width, int height) {
     hit = false;
     
-    // Check if the snake moved to far left or right
-    if ((mPosX < 40) || (mPosX + MOUSE_WIDTH > width)) {
-        mPosX = 50;
-    }
-    
-    hit = false;
-    
-    // Check if the snake moved to far up or down
-    if ((mPosY < 40) || (mPosY + MOUSE_HEIGHT > height)) {
-        mPosY = 50;
-    }
+    mPosX = mouseRandPos(width);
+    mPosY = mouseRandPos(height);
 }
 
 void Mouse::render(SDL_Renderer* renderer) {

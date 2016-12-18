@@ -71,9 +71,9 @@
 		BCE600FA1DF89CF50073D7F5 /* mySnakeClone */ = {
 			isa = PBXGroup;
 			children = (
+				BCE600FB1DF89CF50073D7F5 /* main.cpp */,
 				BC4481D41DFB0A1500643B5E /* game.cpp */,
 				BC4481D51DFB0A1500643B5E /* game.h */,
-				BCE600FB1DF89CF50073D7F5 /* main.cpp */,
 				BC6936141DFB0D23008A8180 /* snake.cpp */,
 				BC6936151DFB0D23008A8180 /* snake.h */,
 				BCFC65161E06EC4600AA1B60 /* mouse.cpp */,
