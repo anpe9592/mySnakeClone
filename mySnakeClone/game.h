@@ -6,6 +6,7 @@
 #include <SDL2/SDL.h>
 
 #include "snake.h"
+#include "mouse.h"
 
 class Game {
 public:
@@ -37,6 +38,7 @@ private:
     int mFlags;                         // Window Flag
     
     Snake snake;
+    Mouse mouse;
     
 };
 

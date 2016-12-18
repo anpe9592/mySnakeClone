@@ -35,14 +35,15 @@ bool Game::init() {
 void Game::render() {
     // Render objects
     snake.render(mRenderer);
+    mouse.render(mRenderer);
     
     // Update screen
     SDL_RenderPresent(mRenderer);
 }
 
 void Game::update() {
-    // Move the snake
-    snake.move(mScreenWidth, mScreenHight);
+    snake.move(mScreenWidth, mScreenHight); // Move the snake
+    mouse.move(mScreenWidth, mScreenHight); // Move the mouse
     
     // Clear screen
     SDL_SetRenderDrawColor(mRenderer, 0x00, 0x00, 0x00, 0x00);
@@ -58,7 +59,7 @@ void Game::handleEvents() {
             mRunning = false;
         }
         
-        // Handle input for the dot
+        // Handle input for the snake dot
         snake.handleEvent(event);
     }
 }
