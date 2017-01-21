@@ -8,8 +8,7 @@
 
 class Mouse {
 public:
-    Mouse():
-    mPosX(0), mPosY(0), hit(false) {  }
+    Mouse();
     
     void setPos(int x, int y);
     

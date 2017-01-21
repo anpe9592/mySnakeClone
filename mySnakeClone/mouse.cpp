@@ -37,6 +37,11 @@ bool collisionDetector(SDL_Rect a, SDL_Rect b) {
     return true;
 }
 
+Mouse::Mouse():
+mPosX(0), mPosY(0), hit(false) {
+    
+}
+
 int mouseRandPos(int pos) {
     // Seed with a real random value, if available
     std::random_device r;
