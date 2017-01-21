@@ -51,7 +51,7 @@ void Game::update() {
     //tmp
     
     snake.move(mScreenWidth, mScreenHight); // Move the snake
-    mouse.move(mScreenWidth, mScreenHight, snakes); // Move the mouse
+    mouse.move(mScreenWidth, mScreenHight, snake.returnRect()); // Move the mouse
     
     // Clear screen
     SDL_SetRenderDrawColor(mRenderer, 0x00, 0x00, 0x00, 0x00);

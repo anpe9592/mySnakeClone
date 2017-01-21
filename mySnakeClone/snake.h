@@ -20,6 +20,16 @@ public:
     static const int SNAKE_HEIGHT = 20;     // Snake dot height
     static const int SNAKE_VEL    =  5;     // Max velocity of the snake
     
+    SDL_Rect returnRect() {
+        SDL_Rect rRect;
+        rRect.x = mPosX;
+        rRect.y = mPosY;
+        rRect.w = SNAKE_WIDTH;
+        rRect.h = SNAKE_HEIGHT;
+        
+        return rRect;
+    }
+    
 private:
     int mPosX, mPosY;   // The X and Y offset of the snake dot
     int mVelX, mVelY;   // The velocity of the snake
