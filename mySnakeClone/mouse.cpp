@@ -50,7 +50,10 @@ int mouseRandPos(int pos) {
 
 
 Mouse::Mouse():
-mPosX(50), mPosY(50), hit(false) {
+hit(false) {
+    mPosX = mouseRandPos(640);
+    mPosY = mouseRandPos(480);
+    
     mCollisionBox.w = MOUSE_WIDTH;
     mCollisionBox.h = MOUSE_HEIGHT;
 }
