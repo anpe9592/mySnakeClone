@@ -23,6 +23,8 @@ private:
     int mPosX, mPosY;   // The X and Y offset of the mouse dot
     
     bool hit;
+    
+    SDL_Rect mCollisionBox;
 };
 
 #endif

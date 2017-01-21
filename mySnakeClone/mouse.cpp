@@ -39,7 +39,8 @@ bool collisionDetector(SDL_Rect a, SDL_Rect b) {
 
 Mouse::Mouse():
 mPosX(0), mPosY(0), hit(false) {
-    
+    mCollisionBox.w = MOUSE_WIDTH;
+    mCollisionBox.h = MOUSE_HEIGHT;
 }
 
 int mouseRandPos(int pos) {
