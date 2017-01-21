@@ -37,12 +37,6 @@ bool collisionDetector(SDL_Rect a, SDL_Rect b) {
     return true;
 }
 
-Mouse::Mouse():
-mPosX(0), mPosY(0), hit(false) {
-    mCollisionBox.w = MOUSE_WIDTH;
-    mCollisionBox.h = MOUSE_HEIGHT;
-}
-
 int mouseRandPos(int pos) {
     // Seed with a real random value, if available
     std::random_device r;
@@ -54,11 +48,20 @@ int mouseRandPos(int pos) {
     return uniform_dist(e1);
 }
 
-void Mouse::move(int width, int height) {
+
+Mouse::Mouse():
+mPosX(50), mPosY(50), hit(false) {
+    mCollisionBox.w = MOUSE_WIDTH;
+    mCollisionBox.h = MOUSE_HEIGHT;
+}
+
+void Mouse::move(int width, int height, SDL_Rect snake) {
     hit = false;
     
-    mPosX = mouseRandPos(width);
-    mPosY = mouseRandPos(height);
+    if (collisionDetector(mCollisionBox, snake)) {
+        mPosX = mouseRandPos(width);
+        mPosY = mouseRandPos(height);
+    }
 }
 
 void Mouse::render(SDL_Renderer* renderer) {

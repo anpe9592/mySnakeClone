@@ -42,8 +42,16 @@ void Game::render() {
 }
 
 void Game::update() {
+    //tmp
+    SDL_Rect snakes;
+    snakes.x = 300;
+    snakes.y = 40;
+    snakes.w = 40;
+    snakes.h = 400;
+    //tmp
+    
     snake.move(mScreenWidth, mScreenHight); // Move the snake
-    mouse.move(mScreenWidth, mScreenHight); // Move the mouse
+    mouse.move(mScreenWidth, mScreenHight, snakes); // Move the mouse
     
     // Clear screen
     SDL_SetRenderDrawColor(mRenderer, 0x00, 0x00, 0x00, 0x00);

@@ -13,7 +13,7 @@ public:
     void setPos(int x, int y);
     
     void handleEvent(SDL_Event& event);     // Takes key input and adept the mouse velocity
-    void move(int width, int height);       // Move the mouse
+    void move(int width, int height, SDL_Rect snake);       // Move the mouse
     void render(SDL_Renderer* renderer);    // Draw mouse on to screen
     
     static const int MOUSE_WIDTH  = 20;     // Mouse dot width
