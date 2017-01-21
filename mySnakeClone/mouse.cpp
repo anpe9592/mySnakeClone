@@ -57,10 +57,15 @@ mPosX(50), mPosY(50), hit(false) {
 
 void Mouse::move(int width, int height, SDL_Rect snake) {
     hit = false;
+    mCollisionBox.x = mPosX;
+    mCollisionBox.y = mPosY;
     
     if (collisionDetector(mCollisionBox, snake)) {
         mPosX = mouseRandPos(width);
         mPosY = mouseRandPos(height);
+        
+        mCollisionBox.x = mPosX;
+        mCollisionBox.y = mPosY;
     }
 }
 
