@@ -4,6 +4,16 @@
 void Snake::setPos(int x, int y) {
     mPosX = x;
     mPosY = y;
+    mConstX = x;
+    mConstY = y;
+}
+
+void Snake::start() {
+    mPosX = mConstX;
+    mPosY = mConstY;
+    mVelX = SNAKE_VEL;
+    mVelY = 0;
+    hit = false;
 }
 
 void Snake::handleEvent(SDL_Event& event) {
@@ -26,6 +36,15 @@ void Snake::handleEvent(SDL_Event& event) {
                 case SDLK_RIGHT:
                     mVelY = 0;
                     mVelX = +SNAKE_VEL;
+                    break;
+            }
+        }
+    } else {
+        // Key pressed down
+        if (event.type == SDL_KEYDOWN && event.key.repeat == 0) {
+            switch (event.key.keysym.sym) {
+                case SDLK_y:
+                    start();
                     break;
             }
         }

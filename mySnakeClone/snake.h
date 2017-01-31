@@ -11,6 +11,7 @@ public:
     mPosX(0), mPosY(0), mVelX(0), mVelY(0), hit(false) { mVelX = SNAKE_VEL; }
     
     void setPos(int x, int y);
+    void start();
     
     void handleEvent(SDL_Event& event);     // Takes key input and adept the snakes velocity
     bool move(int width, int height);       // Move the snake
@@ -23,8 +24,9 @@ public:
     SDL_Rect returnRect();
     
 private:
-    int mPosX, mPosY;   // The X and Y offset of the snake dot
-    int mVelX, mVelY;   // The velocity of the snake
+    int mPosX, mPosY;       // The X and Y offset of the snake dot
+    int mVelX, mVelY;       // The velocity of the snake
+    int mConstX, mConstY;   // The constant X and Y start position
     
     bool hit;
 };
