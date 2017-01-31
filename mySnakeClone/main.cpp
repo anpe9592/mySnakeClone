@@ -11,7 +11,7 @@
  * [done]add collision detection.
  * [done]snake eat rat. rat disappear and draw new rat dot at random place.
  * snake grow by one dot after eating rat.
- * game over when snake hits wall or it self.
+ * [done]game over when snake hits wall or it self.
 
 */
 #include "game.h"

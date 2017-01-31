@@ -7,30 +7,32 @@ void Snake::setPos(int x, int y) {
 }
 
 void Snake::handleEvent(SDL_Event& event) {
-    // Key pressed down
-    if (event.type == SDL_KEYDOWN && event.key.repeat == 0) {
-        switch (event.key.keysym.sym) {
-            case SDLK_UP:
-                mVelX = 0;
-                mVelY = -SNAKE_VEL;
-            break;
-            case SDLK_DOWN:
-                mVelX = 0;
-                mVelY = +SNAKE_VEL;
-            break;
-            case SDLK_LEFT:
-                mVelY = 0;
-                mVelX = -SNAKE_VEL;
-            break;
-            case SDLK_RIGHT:
-                mVelY = 0;
-                mVelX = +SNAKE_VEL;
-            break;
+    if (!hit) {
+        // Key pressed down
+        if (event.type == SDL_KEYDOWN && event.key.repeat == 0) {
+            switch (event.key.keysym.sym) {
+                case SDLK_UP:
+                    mVelX = 0;
+                    mVelY = -SNAKE_VEL;
+                    break;
+                case SDLK_DOWN:
+                    mVelX = 0;
+                    mVelY = +SNAKE_VEL;
+                    break;
+                case SDLK_LEFT:
+                    mVelY = 0;
+                    mVelX = -SNAKE_VEL;
+                    break;
+                case SDLK_RIGHT:
+                    mVelY = 0;
+                    mVelX = +SNAKE_VEL;
+                    break;
+            }
         }
     }
 }
 
-void Snake::move(int width, int height) {
+bool Snake::move(int width, int height) {
     hit = false;
     
     // Left or right
@@ -41,9 +43,11 @@ void Snake::move(int width, int height) {
     if ((mPosX < SNAKE_WIDTH) || (mPosX > width)) {
         // Move back
         mPosX -= mVelX;
+        
+        hit = true;
+        return false;
     }
     
-    hit = false;
     // Up or down
     mPosY += mVelY;
     
@@ -51,7 +55,12 @@ void Snake::move(int width, int height) {
     if ((mPosY < SNAKE_HEIGHT) || (mPosY > height)) {
         // Move back
         mPosY -= mVelY;
+        
+        hit = true;
+        return false;
     }
+    
+    return true;
 }
 
 void Snake::render(SDL_Renderer* renderer) {
