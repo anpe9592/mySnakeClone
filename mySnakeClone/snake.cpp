@@ -60,3 +60,13 @@ void Snake::render(SDL_Renderer* renderer) {
     SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
     SDL_RenderFillRect(renderer, &snake);
 }
+
+SDL_Rect Snake::returnRect() {
+    SDL_Rect rRect;
+    rRect.x = mPosX;
+    rRect.y = mPosY;
+    rRect.w = SNAKE_WIDTH;
+    rRect.h = SNAKE_HEIGHT;
+    
+    return rRect;
+}
