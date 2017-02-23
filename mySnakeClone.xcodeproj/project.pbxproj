@@ -27,7 +27,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		BC3634831E5F02BF00E54630 /* lib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lib.h; sourceTree = "<group>"; };
 		BC4481D41DFB0A1500643B5E /* game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = game.cpp; sourceTree = "<group>"; };
 		BC4481D51DFB0A1500643B5E /* game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game.h; sourceTree = "<group>"; };
 		BC6936141DFB0D23008A8180 /* snake.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = snake.cpp; sourceTree = "<group>"; };
@@ -79,7 +78,6 @@
 				BC6936151DFB0D23008A8180 /* snake.h */,
 				BCFC65161E06EC4600AA1B60 /* mouse.cpp */,
 				BCFC65171E06EC4600AA1B60 /* mouse.h */,
-				BC3634831E5F02BF00E54630 /* lib.h */,
 			);
 			path = mySnakeClone;
 			sourceTree = "<group>";
