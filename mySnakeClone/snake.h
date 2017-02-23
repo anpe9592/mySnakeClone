@@ -11,6 +11,7 @@ public:
     Snake():
     mPosX(0), mPosY(0), mVelX(0), mVelY(0), hit(false) { start(); }
     
+    bool collisionDetector(SDL_Rect a, SDL_Rect b);
     void setPos(int x, int y);
     void start();
     void direction(int x, int y);
