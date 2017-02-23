@@ -13,7 +13,7 @@
  * snake grow by one dot after eating rat.
  * [done]game over when snake hits wall or it self.
  * add text to tell player its game over and how to restart
- * start the game with the snake moving at random direction
+ * [done]start the game with the snake moving at random direction
 
 */
 #include "game.h"

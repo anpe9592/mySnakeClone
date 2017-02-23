@@ -9,11 +9,39 @@ void Snake::setPos(int x, int y) {
 }
 
 void Snake::start() {
-    mPosX = mConstX;
-    mPosY = mConstY;
-    mVelX = SNAKE_VEL;
-    mVelY = 0;
-    hit = false;
+    // Seed with a real random value, if available
+    std::random_device r;
+    
+    // Choose a random mean between 1 and 4
+    std::default_random_engine e1(r());
+    std::uniform_int_distribution<int> uniform_dist(1, 4);
+    int direction = uniform_dist(e1);
+    
+    if (direction == 1) { // right
+        mPosX = mConstX;
+        mPosY = mConstY;
+        mVelX = SNAKE_VEL;
+        mVelY = 0;
+        hit = false;
+    } else if (direction == 2) { // left
+        mPosX = mConstX;
+        mPosY = mConstY;
+        mVelX = -SNAKE_VEL;
+        mVelY = 0;
+        hit = false;
+    } else if (direction == 3) { // down
+        mPosX = mConstX;
+        mPosY = mConstY;
+        mVelX = 0;
+        mVelY = SNAKE_VEL;
+        hit = false;
+    } else { // up
+        mPosX = mConstX;
+        mPosY = mConstY;
+        mVelX = 0;
+        mVelY = -SNAKE_VEL;
+        hit = false;
+    }
 }
 
 void Snake::handleEvent(SDL_Event& event) {

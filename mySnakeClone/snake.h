@@ -2,6 +2,7 @@
 #define snake_h
 
 #include <iostream>
+#include <random>
 
 #include <SDL2/SDL.h>
 
