@@ -50,7 +50,7 @@ void Game::update() {
     snakes.h = 400;
     //tmp
     
-    if (!snake.move(mScreenWidth, mScreenHight)) {
+    if (!snake.move(mScreenWidth, mScreenHight, mouse.returnRect())) {
         std::cout << "Game over" << std::endl;
     }
     //snake.move(mScreenWidth, mScreenHight); // Move the snake

@@ -21,6 +21,8 @@ public:
     static const int MOUSE_WIDTH  = 20;     // Mouse dot width
     static const int MOUSE_HEIGHT = 20;     // Mouse dot height
     
+    SDL_Rect returnRect();
+    
 private:
     int mPosX, mPosY;   // The X and Y offset of the mouse dot
     

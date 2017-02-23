@@ -78,3 +78,13 @@ void Mouse::render(SDL_Renderer* renderer) {
     SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
     SDL_RenderFillRect(renderer, &mouse);
 }
+
+SDL_Rect Mouse::returnRect() {
+    SDL_Rect rRect;
+    rRect.x = mPosX;
+    rRect.y = mPosY;
+    rRect.w = MOUSE_WIDTH;
+    rRect.h = MOUSE_HEIGHT;
+    
+    return rRect;
+}

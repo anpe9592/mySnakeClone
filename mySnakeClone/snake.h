@@ -21,7 +21,7 @@ public:
     void direction(int x, int y);
     
     void handleEvent(SDL_Event& event);     // Takes key input and adept the snakes velocity
-    bool move(int width, int height);       // Move the snake
+    bool move(int width, int height, SDL_Rect mouse);       // Move the snake
     void render(SDL_Renderer* renderer);    // Draw snake on to screen
     
     static const int SNAKE_WIDTH  = 20;     // Snake dot width

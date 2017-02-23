@@ -106,7 +106,7 @@ void Snake::handleEvent(SDL_Event& event) {
     }
 }
 
-bool Snake::move(int width, int height) {
+bool Snake::move(int width, int height, SDL_Rect mouse) {
     hit = false;
     
     // Left or right
@@ -132,6 +132,19 @@ bool Snake::move(int width, int height) {
         
         hit = true;
         return false;
+    }
+    
+    mCollisionBox.x = mPosX;
+    mCollisionBox.y = mPosY;
+    
+    if (collisionDetector(mCollisionBox, mouse)) {
+        //mPosX = mouseRandPos(width);
+        //mPosY = mouseRandPos(height);
+        
+        std::cout << "I ate you" << std::endl;
+        
+        mCollisionBox.x = mPosX;
+        mCollisionBox.y = mPosY;
     }
     
     return true;
