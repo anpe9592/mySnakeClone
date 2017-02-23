@@ -56,12 +56,16 @@ void Snake::start() {
     int directions = uniform_dist(e1);
     
     if (directions == 1) { // right
+        key = 4;
         direction(SNAKE_VEL, 0);
     } else if (directions == 2) { // left
+        key = 3;
         direction(-SNAKE_VEL, 0);
     } else if (directions == 3) { // down
+        key = 2;
         direction(0, SNAKE_VEL);
     } else { // up
+        key = 1;
         direction(0, -SNAKE_VEL);
     }
 }
@@ -80,18 +84,26 @@ void Snake::handleEvent(SDL_Event& event) {
         if (event.type == SDL_KEYDOWN && event.key.repeat == 0) {
             switch (event.key.keysym.sym) {
                 case SDLK_UP:
+                    std::cout << "up " << SDLK_UP << std::endl;
+                    key = 1;
                     mVelX = 0;
                     mVelY = -SNAKE_VEL;
                     break;
                 case SDLK_DOWN:
+                    std::cout << "down " << SDLK_DOWN << std::endl;
+                    key = 2;
                     mVelX = 0;
                     mVelY = +SNAKE_VEL;
                     break;
                 case SDLK_LEFT:
+                    std::cout << "left " <<  SDLK_LEFT << std::endl;
+                    key = 3;
                     mVelY = 0;
                     mVelX = -SNAKE_VEL;
                     break;
                 case SDLK_RIGHT:
+                    std::cout << "right " <<  SDLK_RIGHT << std::endl;
+                    key = 4;
                     mVelY = 0;
                     mVelX = +SNAKE_VEL;
                     break;
@@ -155,15 +167,23 @@ bool Snake::move(int width, int height, SDL_Rect mouse) {
 }
 
 void Snake::render(SDL_Renderer* renderer) {
+    // creats a snake dot
     if (eat == true) {
         SDL_Rect snake = {mPosX - SNAKE_WIDTH, mPosY - SNAKE_HEIGHT, SNAKE_WIDTH, SNAKE_HEIGHT};
         snakeDots.push_back(snake);
         eat = false;
     }
+    
     // Draw snake
     for (int i = 0; i < snakeDots.size(); i++) {
-        snakeDots[i].x = mPosX - (SNAKE_WIDTH * (i + 1));
-        snakeDots[i].y = mPosY - SNAKE_HEIGHT;
+        if (key == 1 || key == 2) {
+            snakeDots[i].x = mPosX - SNAKE_WIDTH;
+            snakeDots[i].y = mPosY - (SNAKE_HEIGHT * (i + 1));
+        } else if (key == 3 || key == 4) {
+            snakeDots[i].x = mPosX - (SNAKE_WIDTH * (i + 1));
+            snakeDots[i].y = mPosY - SNAKE_HEIGHT;
+        }
+        
         SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
         SDL_RenderFillRect(renderer, &snakeDots[i]);
     }

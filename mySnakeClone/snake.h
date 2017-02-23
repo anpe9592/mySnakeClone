@@ -10,7 +10,7 @@
 class Snake {
 public:
     Snake():
-    mPosX(0), mPosY(0), mVelX(0), mVelY(0), hit(false), eat(true) {
+    mPosX(0), mPosY(0), mVelX(0), mVelY(0), hit(false), eat(true), key(0) {
         start();
         mCollisionBox.w = SNAKE_WIDTH;
         mCollisionBox.h = SNAKE_HEIGHT;
@@ -40,6 +40,8 @@ private:
     bool eat;
     
     SDL_Rect mCollisionBox;
+    
+    int key;
     
     std::vector<SDL_Rect> snakeDots;
 };
