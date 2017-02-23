@@ -2,6 +2,7 @@
 #define snake_h
 
 #include <iostream>
+#include <vector>
 #include <random>
 
 #include <SDL2/SDL.h>
@@ -9,7 +10,7 @@
 class Snake {
 public:
     Snake():
-    mPosX(0), mPosY(0), mVelX(0), mVelY(0), hit(false) {
+    mPosX(0), mPosY(0), mVelX(0), mVelY(0), hit(false), eat(true) {
         start();
         mCollisionBox.w = SNAKE_WIDTH;
         mCollisionBox.h = SNAKE_HEIGHT;
@@ -36,8 +37,11 @@ private:
     int mConstX, mConstY;   // The constant X and Y start position
     
     bool hit;
+    bool eat;
     
     SDL_Rect mCollisionBox;
+    
+    std::vector<SDL_Rect> snakeDots;
 };
 
 #endif 

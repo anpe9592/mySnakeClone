@@ -44,6 +44,9 @@ void Snake::setPos(int x, int y) {
 }
 
 void Snake::start() {
+    snakeDots.clear();
+    eat = true;
+    
     // Seed with a real random value, if available
     std::random_device r;
     
@@ -140,6 +143,7 @@ bool Snake::move(int width, int height, SDL_Rect mouse) {
     if (collisionDetector(mCollisionBox, mouse)) {
         //mPosX = mouseRandPos(width);
         //mPosY = mouseRandPos(height);
+        eat = true;
         
         std::cout << "I ate you" << std::endl;
         
@@ -151,10 +155,23 @@ bool Snake::move(int width, int height, SDL_Rect mouse) {
 }
 
 void Snake::render(SDL_Renderer* renderer) {
+    if (eat == true) {
+        SDL_Rect snake = {mPosX - SNAKE_WIDTH, mPosY - SNAKE_HEIGHT, SNAKE_WIDTH, SNAKE_HEIGHT};
+        snakeDots.push_back(snake);
+        eat = false;
+    }
     // Draw snake
+    for (int i = 0; i < snakeDots.size(); i++) {
+        snakeDots[i].x = mPosX - (SNAKE_WIDTH * (i + 1));
+        snakeDots[i].y = mPosY - (SNAKE_HEIGHT * (i + 1));
+        SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+        SDL_RenderFillRect(renderer, &snakeDots[i]);
+    }
+    /*
     SDL_Rect snake = {mPosX - SNAKE_WIDTH, mPosY - SNAKE_HEIGHT, SNAKE_WIDTH, SNAKE_HEIGHT};
     SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
     SDL_RenderFillRect(renderer, &snake);
+    */
 }
 
 SDL_Rect Snake::returnRect() {
