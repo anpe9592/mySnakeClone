@@ -13,6 +13,7 @@ public:
     
     void setPos(int x, int y);
     void start();
+    void direction(int x, int y);
     
     void handleEvent(SDL_Event& event);     // Takes key input and adept the snakes velocity
     bool move(int width, int height);       // Move the snake

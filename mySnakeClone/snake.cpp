@@ -15,33 +15,25 @@ void Snake::start() {
     // Choose a random mean between 1 and 4
     std::default_random_engine e1(r());
     std::uniform_int_distribution<int> uniform_dist(1, 4);
-    int direction = uniform_dist(e1);
+    int directions = uniform_dist(e1);
     
-    if (direction == 1) { // right
-        mPosX = mConstX;
-        mPosY = mConstY;
-        mVelX = SNAKE_VEL;
-        mVelY = 0;
-        hit = false;
-    } else if (direction == 2) { // left
-        mPosX = mConstX;
-        mPosY = mConstY;
-        mVelX = -SNAKE_VEL;
-        mVelY = 0;
-        hit = false;
-    } else if (direction == 3) { // down
-        mPosX = mConstX;
-        mPosY = mConstY;
-        mVelX = 0;
-        mVelY = SNAKE_VEL;
-        hit = false;
+    if (directions == 1) { // right
+        direction(SNAKE_VEL, 0);
+    } else if (directions == 2) { // left
+        direction(-SNAKE_VEL, 0);
+    } else if (directions == 3) { // down
+        direction(0, SNAKE_VEL);
     } else { // up
-        mPosX = mConstX;
-        mPosY = mConstY;
-        mVelX = 0;
-        mVelY = -SNAKE_VEL;
-        hit = false;
+        direction(0, -SNAKE_VEL);
     }
+}
+
+void Snake::direction(int x, int y) {
+    mPosX = mConstX;
+    mPosY = mConstY;
+    mVelX = x;
+    mVelY = y;
+    hit = false;
 }
 
 void Snake::handleEvent(SDL_Event& event) {
