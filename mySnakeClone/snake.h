@@ -9,7 +9,11 @@
 class Snake {
 public:
     Snake():
-    mPosX(0), mPosY(0), mVelX(0), mVelY(0), hit(false) { start(); }
+    mPosX(0), mPosY(0), mVelX(0), mVelY(0), hit(false) {
+        start();
+        mCollisionBox.w = SNAKE_WIDTH;
+        mCollisionBox.h = SNAKE_HEIGHT;
+    }
     
     bool collisionDetector(SDL_Rect a, SDL_Rect b);
     void setPos(int x, int y);
@@ -32,6 +36,8 @@ private:
     int mConstX, mConstY;   // The constant X and Y start position
     
     bool hit;
+    
+    SDL_Rect mCollisionBox;
 };
 
 #endif 
