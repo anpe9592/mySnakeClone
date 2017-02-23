@@ -163,7 +163,7 @@ void Snake::render(SDL_Renderer* renderer) {
     // Draw snake
     for (int i = 0; i < snakeDots.size(); i++) {
         snakeDots[i].x = mPosX - (SNAKE_WIDTH * (i + 1));
-        snakeDots[i].y = mPosY - (SNAKE_HEIGHT * (i + 1));
+        snakeDots[i].y = mPosY - SNAKE_HEIGHT;
         SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
         SDL_RenderFillRect(renderer, &snakeDots[i]);
     }
