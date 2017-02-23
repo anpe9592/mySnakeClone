@@ -10,6 +10,8 @@ class Mouse {
 public:
     Mouse();
     
+    bool collisionDetector(SDL_Rect a, SDL_Rect b);
+    
     void setPos(int x, int y);
     
     void handleEvent(SDL_Event& event);     // Takes key input and adept the mouse velocity

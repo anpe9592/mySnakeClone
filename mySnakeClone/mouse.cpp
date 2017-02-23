@@ -2,7 +2,28 @@
 #include <random>
 #include "mouse.h"
 
-bool collisionDetector(SDL_Rect a, SDL_Rect b) {
+int mouseRandPos(int pos) {
+    // Seed with a real random value, if available
+    std::random_device r;
+    
+    // Choose a random mean between 40 and pos
+    std::default_random_engine e1(r());
+    std::uniform_int_distribution<int> uniform_dist(40, pos);
+    
+    return uniform_dist(e1);
+}
+
+
+Mouse::Mouse():
+hit(false) {
+    mPosX = mouseRandPos(640);
+    mPosY = mouseRandPos(480);
+    
+    mCollisionBox.w = MOUSE_WIDTH;
+    mCollisionBox.h = MOUSE_HEIGHT;
+}
+
+bool Mouse::collisionDetector(SDL_Rect a, SDL_Rect b) {
     int leftA,   leftB;
     int rightA,  rightB;
     int topA,    topB;
@@ -35,27 +56,6 @@ bool collisionDetector(SDL_Rect a, SDL_Rect b) {
     }
     
     return true;
-}
-
-int mouseRandPos(int pos) {
-    // Seed with a real random value, if available
-    std::random_device r;
-    
-    // Choose a random mean between 40 and pos
-    std::default_random_engine e1(r());
-    std::uniform_int_distribution<int> uniform_dist(40, pos);
-    
-    return uniform_dist(e1);
-}
-
-
-Mouse::Mouse():
-hit(false) {
-    mPosX = mouseRandPos(640);
-    mPosY = mouseRandPos(480);
-    
-    mCollisionBox.w = MOUSE_WIDTH;
-    mCollisionBox.h = MOUSE_HEIGHT;
 }
 
 void Mouse::move(int width, int height, SDL_Rect snake) {
