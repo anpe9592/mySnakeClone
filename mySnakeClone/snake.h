@@ -9,7 +9,7 @@
 class Snake {
 public:
     Snake():
-    mPosX(0), mPosY(0), mVelX(0), mVelY(0), hit(false) { mVelX = SNAKE_VEL; }
+    mPosX(0), mPosY(0), mVelX(0), mVelY(0), hit(false) { start(); }
     
     void setPos(int x, int y);
     void start();
