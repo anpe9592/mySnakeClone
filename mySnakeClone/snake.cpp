@@ -175,11 +175,28 @@ void Snake::render(SDL_Renderer* renderer) {
     }
     
     // Draw snake
+    //for (int n : l)
+    int i = 0;
+    for (SDL_Rect n : snakeDots) {
+        i++;
+        n.x = mPosX - SNAKE_WIDTH;
+        n.y = mPosY - (SNAKE_HEIGHT * i);
+        SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+        SDL_RenderFillRect(renderer, &n);
+    }
+    
+    /*
     for (int i = 0; i < snakeDots.size(); i++) {
-        if (key == 1 || key == 2) {
+        if (key == 1) {
             snakeDots[i].x = mPosX - SNAKE_WIDTH;
             snakeDots[i].y = mPosY - (SNAKE_HEIGHT * (i + 1));
-        } else if (key == 3 || key == 4) {
+        } else if (key == 2) {
+            snakeDots[i].x = mPosX - SNAKE_WIDTH;
+            snakeDots[i].y = mPosY - (SNAKE_HEIGHT * (i + 1));
+        } else if (key == 3) {
+            snakeDots[i].x = mPosX - (SNAKE_WIDTH * (i + 1));
+            snakeDots[i].y = mPosY - SNAKE_HEIGHT;
+        } else if (key == 4) {
             snakeDots[i].x = mPosX - (SNAKE_WIDTH * (i + 1));
             snakeDots[i].y = mPosY - SNAKE_HEIGHT;
         }
@@ -187,6 +204,7 @@ void Snake::render(SDL_Renderer* renderer) {
         SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
         SDL_RenderFillRect(renderer, &snakeDots[i]);
     }
+     */
     /*
     SDL_Rect snake = {mPosX - SNAKE_WIDTH, mPosY - SNAKE_HEIGHT, SNAKE_WIDTH, SNAKE_HEIGHT};
     SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);

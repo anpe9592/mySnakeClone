@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <list>
 #include <random>
 
 #include <SDL2/SDL.h>
@@ -43,7 +44,7 @@ private:
     
     int key;
     
-    std::vector<SDL_Rect> snakeDots;
+    std::list<SDL_Rect> snakeDots;
 };
 
 #endif 
