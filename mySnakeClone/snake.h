@@ -28,7 +28,7 @@ public:
     
     static const int SNAKE_WIDTH  = 20;     // Snake dot width
     static const int SNAKE_HEIGHT = 20;     // Snake dot height
-    static const int SNAKE_VEL    =  5;     // Max velocity of the snake
+    static const int SNAKE_VEL    =  3;     // Max velocity of the snake
     
     SDL_Rect returnRect();
     
