@@ -127,12 +127,6 @@ bool Snake::move(int width, int height, SDL_Rect mouse) {
     // Left or right
     mPosX += mVelX;
     //mPosX += SNAKE_VEL;
-    int oldmPosX = mPosX - SNAKE_WIDTH;
-    for (SDL_Rect n : snakeDots) {
-        int tmpX = n.x;
-        n.x = oldmPosX;
-        oldmPosX = tmpX;
-    }
     
     // Check if the snake moved to far left or right
     if ((mPosX < SNAKE_WIDTH) || (mPosX > width)) {
@@ -145,12 +139,6 @@ bool Snake::move(int width, int height, SDL_Rect mouse) {
     
     // Up or down
     mPosY += mVelY;
-    int oldmPosY = mPosY - SNAKE_HEIGHT;
-    for (SDL_Rect n : snakeDots) {
-        int tmpY = n.y;
-        n.y = oldmPosY;
-        oldmPosY = tmpY;
-    }
     
     // Check if the snake moved to far up or down
     if ((mPosY < SNAKE_HEIGHT) || (mPosY > height)) {
@@ -187,25 +175,6 @@ void Snake::render(SDL_Renderer* renderer) {
     }
     
     // Draw snake
-    //for (int n : l)
-    std::cout << mPosX << std::endl;
-    std::cout << mPosY << std::endl;
-    int oldmPosX = mPosX - SNAKE_WIDTH;
-    int oldmPosY = mPosY - SNAKE_HEIGHT;
-    int i = 0;
-    for (SDL_Rect n : snakeDots) {
-        i++;
-        int tmpX = n.x;
-        int tmpY = n.y;
-        n.x = oldmPosX;
-        n.y = oldmPosY;
-        SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
-        SDL_RenderFillRect(renderer, &n);
-        oldmPosX = tmpX;
-        oldmPosY = tmpY;
-    }
-    
-    /*
     for (int i = 0; i < snakeDots.size(); i++) {
         if (key == 1) {
             snakeDots[i].x = mPosX - SNAKE_WIDTH;
@@ -224,7 +193,6 @@ void Snake::render(SDL_Renderer* renderer) {
         SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
         SDL_RenderFillRect(renderer, &snakeDots[i]);
     }
-     */
     /*
     SDL_Rect snake = {mPosX - SNAKE_WIDTH, mPosY - SNAKE_HEIGHT, SNAKE_WIDTH, SNAKE_HEIGHT};
     SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
