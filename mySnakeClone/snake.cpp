@@ -129,7 +129,7 @@ bool Snake::move(int width, int height, SDL_Rect mouse) {
     //mPosX += SNAKE_VEL;
     
     // Check if the snake moved to far left or right
-    if ((mPosX < SNAKE_WIDTH) || (mPosX > width)) {
+    if ((mPosX < 0) || (mPosX + SNAKE_WIDTH > width)) {
         // Move back
         mPosX -= mVelX;
         
@@ -141,7 +141,7 @@ bool Snake::move(int width, int height, SDL_Rect mouse) {
     mPosY += mVelY;
     
     // Check if the snake moved to far up or down
-    if ((mPosY < SNAKE_HEIGHT) || (mPosY > height)) {
+    if ((mPosY < 0) || (mPosY + SNAKE_HEIGHT > height)) {
         // Move back
         mPosY -= mVelY;
         
