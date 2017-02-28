@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <deque>
 #include <random>
 
 #include <SDL2/SDL.h>

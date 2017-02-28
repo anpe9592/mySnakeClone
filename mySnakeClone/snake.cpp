@@ -174,21 +174,20 @@ void Snake::render(SDL_Renderer* renderer) {
         eat = false;
     }
     
+    std::cout << snakeDots[0].x << std::endl;
+    
     // Draw snake
+    int oldPosX = mPosX;
+    int oldPosY = mPosY;
     for (int i = 0; i < snakeDots.size(); i++) {
-        if (key == 1) {
-            snakeDots[i].x = mPosX - SNAKE_WIDTH;
-            snakeDots[i].y = mPosY - (SNAKE_HEIGHT * (i + 1));
-        } else if (key == 2) {
-            snakeDots[i].x = mPosX - SNAKE_WIDTH;
-            snakeDots[i].y = mPosY - (SNAKE_HEIGHT * (i + 1));
-        } else if (key == 3) {
-            snakeDots[i].x = mPosX - (SNAKE_WIDTH * (i + 1));
-            snakeDots[i].y = mPosY - SNAKE_HEIGHT;
-        } else if (key == 4) {
-            snakeDots[i].x = mPosX - (SNAKE_WIDTH * (i + 1));
-            snakeDots[i].y = mPosY - SNAKE_HEIGHT;
-        }
+        int tmpX = snakeDots[i].x;
+        int tmpY = snakeDots[i].y;
+        
+        snakeDots[i].x = oldPosX;
+        snakeDots[i].y = oldPosY;
+        
+        oldPosX = tmpX;
+        oldPosY = tmpY;
         
         SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
         SDL_RenderFillRect(renderer, &snakeDots[i]);
