@@ -1,2 +1,6 @@
 
 *.pbxproj
+
+mySnakeClone\.xcodeproj/project\.xcworkspace/
+
+mySnakeClone\.xcodeproj/xcuserdata/ninja\.xcuserdatad/xcschemes/
