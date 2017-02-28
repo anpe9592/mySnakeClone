@@ -74,7 +74,7 @@ void Mouse::move(int width, int height, SDL_Rect snake) {
 
 void Mouse::render(SDL_Renderer* renderer) {
     // Draw mouse
-    SDL_Rect mouse = {mPosX - MOUSE_WIDTH, mPosY - MOUSE_HEIGHT, MOUSE_WIDTH, MOUSE_HEIGHT};
+    SDL_Rect mouse = {mPosX, mPosY, MOUSE_WIDTH, MOUSE_HEIGHT};
     SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
     SDL_RenderFillRect(renderer, &mouse);
 }
