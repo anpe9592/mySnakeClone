@@ -169,8 +169,10 @@ bool Snake::move(int width, int height, SDL_Rect mouse) {
 void Snake::render(SDL_Renderer* renderer) {
     // creats a snake dot
     if (eat == true) {
-        SDL_Rect snake = {mPosX, mPosY, SNAKE_WIDTH, SNAKE_HEIGHT};
-        snakeDots.push_back(snake);
+        for (int i = 0; i < 5; i++) {
+            SDL_Rect snake = {mPosX, mPosY, SNAKE_WIDTH, SNAKE_HEIGHT};
+            snakeDots.push_back(snake);
+        }
         eat = false;
     }
     

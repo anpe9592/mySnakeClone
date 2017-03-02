@@ -10,7 +10,7 @@
  * [done]draw dot at random place on the window. RAT.
  * [done]add collision detection.
  * [done]snake eat rat. rat disappear and draw new rat dot at random place.
- * snake grow by one dot after eating rat.
+ * [done]snake grow by one dot after eating rat.
  * [done]game over when snake hits wall or it self.
  * add text to tell player its game over and how to restart
  * [done]start the game with the snake moving at random direction
