@@ -8,7 +8,7 @@ int mouseRandPos(int pos) {
     
     // Choose a random mean between 40 and pos
     std::default_random_engine e1(r());
-    std::uniform_int_distribution<int> uniform_dist(40, pos);
+    std::uniform_int_distribution<int> uniform_dist(40, (pos - 20));
     
     return uniform_dist(e1);
 }
