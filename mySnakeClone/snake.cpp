@@ -183,25 +183,8 @@ void Snake::render(SDL_Renderer* renderer) {
         int tmpX = snakeDots[i].x;
         int tmpY = snakeDots[i].y;
         
-        if (i > 0) {
-            if (key == 3) {
-                snakeDots[i].x = oldPosX + 20;
-                snakeDots[i].y = oldPosY;
-            } else if (key == 4) {
-                snakeDots[i].x = oldPosX - 20;
-                snakeDots[i].y = oldPosY;
-            } else if (key == 2) {
-                snakeDots[i].x = oldPosX;
-                snakeDots[i].y = oldPosY - 20;
-            } else if (key == 1) {
-                snakeDots[i].x = oldPosX;
-                snakeDots[i].y = oldPosY + 20;
-            }
-        } else {
-            snakeDots[i].x = oldPosX;
-            snakeDots[i].y = oldPosY;
-        }
-        
+        snakeDots[i].x = oldPosX;
+        snakeDots[i].y = oldPosY;
         
         oldPosX = tmpX;
         oldPosY = tmpY;
