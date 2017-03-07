@@ -15,7 +15,7 @@
 class Game {
 public:
     Game(const char* title, int xpos, int ypos, int screenWidth, int screenHight, int flags):
-    mRunning(true), mWindow(NULL), mRenderer(NULL), mTitle(title), mXpos(xpos), mYpos(ypos),
+    mRunning(true), over(false), mWindow(NULL), mRenderer(NULL), mTitle(title), mXpos(xpos), mYpos(ypos),
     mScreenWidth(screenWidth), mScreenHight(screenHight), mFlags(flags) {
         snake.setPos(screenWidth / 2, screenHight / 2);
     }
@@ -39,6 +39,8 @@ private:
     TTF_Font* mFont;
     
     bool mRunning;
+    
+    bool over;
     
     const char* mTitle;                 // Window title
     int mXpos, mYpos;                   // The X and Y offsets of the window

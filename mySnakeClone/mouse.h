@@ -12,7 +12,7 @@ public:
     
     bool collisionDetector(SDL_Rect a, SDL_Rect b);
     
-    void setPos(int x, int y);
+    void newPos();
     
     void handleEvent(SDL_Event& event);     // Takes key input and adept the mouse velocity
     void move(int width, int height, SDL_Rect snake);       // Move the mouse

@@ -71,6 +71,8 @@ void Game::update() {
     
     // Move the snake
     if (!snake.move(mScreenWidth, mScreenHight, mouse.returnRect())) {
+        over = true;
+        
         gameOverText.str("Game Over! \nPlay againg press Y? \nQuit press N?");
         
         // Render text
@@ -98,6 +100,12 @@ void Game::handleEvents() {
             switch (event.key.keysym.sym) {
                 case SDLK_n:
                     mRunning = false;
+                    break;
+                case SDLK_y:
+                    if (over) {
+                        mouse.newPos();
+                        over = false;
+                    }
                     break;
             }
         }

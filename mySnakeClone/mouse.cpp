@@ -16,6 +16,10 @@ int mouseRandPos(int pos) {
 
 Mouse::Mouse():
 hit(false) {
+    newPos();
+}
+
+void Mouse::newPos() {
     mPosX = mouseRandPos(640);
     mPosY = mouseRandPos(480);
     
@@ -64,11 +68,7 @@ void Mouse::move(int width, int height, SDL_Rect snake) {
     mCollisionBox.y = mPosY;
     
     if (collisionDetector(mCollisionBox, snake)) {
-        mPosX = mouseRandPos(width);
-        mPosY = mouseRandPos(height);
-        
-        mCollisionBox.x = mPosX;
-        mCollisionBox.y = mPosY;
+        newPos();
     }
 }
 
