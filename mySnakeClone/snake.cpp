@@ -176,7 +176,7 @@ void Snake::render(SDL_Renderer* renderer) {
         eat = false;
     }
     
-    std::cout << snakeDots[0].x << std::endl;
+    //std::cout << snakeDots[0].x << std::endl;
     
     // Draw snake
     int oldPosX = mPosX;

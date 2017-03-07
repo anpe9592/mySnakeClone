@@ -12,10 +12,19 @@ Text::~Text() {
     deallocatesText();
 }
 
-bool Text::createImageFromString(SDL_Renderer* renderer, TTF_Font *font,std::string textureText, SDL_Color textColor) {
+bool Text::init() {
+    // Initialize SDL_ttf
+    if (TTF_Init() == -1) {
+        std::cout << "Unable to initialize SDL_ttf! SDL_ttf Error: " << TTF_GetError() << std::endl;
+        return false;
+    }
+    return true;
+}
+
+bool Text::createImageFromString(SDL_Renderer* renderer, std::string textureText, SDL_Color textColor) {
     deallocatesText();
     
-    SDL_Surface* textSurface = TTF_RenderText_Solid(font, textureText.c_str(), textColor);
+    SDL_Surface* textSurface = TTF_RenderText_Solid(mFont, textureText.c_str(), textColor);
     if (textSurface != NULL) {
         mText = SDL_CreateTextureFromSurface(renderer, textSurface);
         if(mText != NULL) {
@@ -44,6 +53,8 @@ void Text::deallocatesText() {
         mTextWidth = 0;
         mTextHeight = 0;
     }
+    
+    TTF_Quit();
 }
 
 void Text::renderText(SDL_Renderer* renderer, int x, int y, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip) {

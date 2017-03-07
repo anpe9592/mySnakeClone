@@ -14,7 +14,9 @@ public:
     
     ~Text();
     
-    bool createImageFromString(SDL_Renderer* renderer, TTF_Font *font, std::string textureText, SDL_Color textColor);
+    bool init();
+    
+    bool createImageFromString(SDL_Renderer* renderer, std::string textureText, SDL_Color textColor);
     
     void deallocatesText();
     

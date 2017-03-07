@@ -2,18 +2,23 @@
 #define game_h
 
 #include <iostream>
+#include <string>
+#include <sstream>
 
 #include <SDL2/SDL.h>
 
 #include "snake.h"
 #include "mouse.h"
+#include "text.h"
 
 class Game {
 public:
     Game(const char* title, int xpos, int ypos, int screenWidth, int screenHight, int flags):
     mRunning(true), mWindow(NULL), mRenderer(NULL), mTitle(title), mXpos(xpos), mYpos(ypos),
     mScreenWidth(screenWidth), mScreenHight(screenHight), mFlags(flags) {
-        snake.setPos(screenWidth / 2, screenHight / 2); }
+        snake.setPos(screenWidth / 2, screenHight / 2);
+        text.loadTtfFiles();
+    }
     
     ~Game() {}
     
@@ -37,8 +42,11 @@ private:
     int mScreenWidth, mScreenHight;     // The windows width and height
     int mFlags;                         // Window Flag
     
+    std::stringstream gameOverText;
+    
     Snake snake;
     Mouse mouse;
+    Text  text;
     
 };
 

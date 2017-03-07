@@ -16,6 +16,10 @@ bool Game::init() {
             if (mRenderer != NULL) {
                 // Initialize renderer color
                 SDL_SetRenderDrawColor(mRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+                
+                if (!text.init()) {
+                    return false;
+                }
             } else {
                 std::cout << "Unable to create Renderer! SDL Error: " << SDL_GetError() << std::endl;
                 return false;
@@ -34,6 +38,7 @@ bool Game::init() {
 
 void Game::render() {
     // Render objects
+    text.renderText(mRenderer, (mScreenWidth - text.getTextWidth() ) / 2, 12);
     snake.render(mRenderer);
     mouse.render(mRenderer);
     
@@ -49,9 +54,15 @@ void Game::update() {
     snakes.w = 40;
     snakes.h = 400;
     //tmp
+    // Set text to be rendered
+    gameOverText.str("Game Over! \n Press Y to play again");
     
     if (!snake.move(mScreenWidth, mScreenHight, mouse.returnRect())) {
-        std::cout << "Game over" << std::endl;
+        // Render text
+        SDL_Color textColor = { 0xFF, 0xFF, 0xFF, 0xFF };
+        if (!text.createImageFromString(mRenderer, gameOverText.str().c_str(), textColor)) {
+            std::cout << "Unable to render score texture!" << std::endl;
+        }
     }
     //snake.move(mScreenWidth, mScreenHight); // Move the snake
     mouse.move(mScreenWidth, mScreenHight, snake.returnRect()); // Move the mouse
@@ -76,6 +87,8 @@ void Game::handleEvents() {
 }
 
 void Game::clean() {
+    text.deallocatesText();
+    
     SDL_DestroyRenderer(mRenderer);
     SDL_DestroyWindow(mWindow);
     mWindow = NULL;
