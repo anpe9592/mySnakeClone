@@ -68,7 +68,7 @@ void Game::update() {
     snakes.h = 400;
     //tmp
     // Set text to be rendered
-    gameOverText.str("Game Over! \n Press Y to play again");
+    gameOverText.str("Game Over! \nPlay againg press Y? \nQuit press N?");
     
     if (!snake.move(mScreenWidth, mScreenHight, mouse.returnRect())) {
         // Render text

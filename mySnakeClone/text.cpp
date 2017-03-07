@@ -15,7 +15,7 @@ Text::~Text() {
 bool Text::createImageFromString(SDL_Renderer* renderer, TTF_Font *font, std::string textureText, SDL_Color textColor) {
     deallocatesText();
     
-    SDL_Surface* textSurface = TTF_RenderText_Solid(font, textureText.c_str(), textColor);
+    SDL_Surface* textSurface = TTF_RenderText_Blended_Wrapped(font, textureText.c_str(), textColor, 300);
     if (textSurface != NULL) {
         mText = SDL_CreateTextureFromSurface(renderer, textSurface);
         if(mText != NULL) {
