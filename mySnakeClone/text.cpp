@@ -34,6 +34,10 @@ bool Text::createImageFromString(SDL_Renderer* renderer, TTF_Font *font,std::str
 }
 
 void Text::deallocatesText() {
+    // Free font
+    TTF_CloseFont(mFont);
+    mFont = NULL;
+    
     if (mText != NULL) {
         SDL_DestroyTexture(mText);
         mText = NULL;
@@ -51,4 +55,14 @@ void Text::renderText(SDL_Renderer* renderer, int x, int y, SDL_Rect* clip, doub
     }
     
     SDL_RenderCopyEx(renderer, mText, clip, &renderQuad, angle, center, flip);
+}
+
+bool Text::loadTtfFiles() {
+    mFont = TTF_OpenFont("PxPlus_IBM_VGA8.ttf", 28);
+    if (mFont == NULL) {
+        std::cout << "Failed to load the font PxPlus_IBM_VGA8! SDL_ttf Error: " << TTF_GetError() << std::endl;
+        return false;
+    }
+    
+    return true;
 }
