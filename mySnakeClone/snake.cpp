@@ -84,25 +84,21 @@ void Snake::handleEvent(SDL_Event& event) {
         if (event.type == SDL_KEYDOWN && event.key.repeat == 0) {
             switch (event.key.keysym.sym) {
                 case SDLK_UP:
-                    std::cout << "up " << SDLK_UP << std::endl;
                     key = 1;
                     mVelX = 0;
                     mVelY = -SNAKE_VEL;
                     break;
                 case SDLK_DOWN:
-                    std::cout << "down " << SDLK_DOWN << std::endl;
                     key = 2;
                     mVelX = 0;
                     mVelY = +SNAKE_VEL;
                     break;
                 case SDLK_LEFT:
-                    std::cout << "left " <<  SDLK_LEFT << std::endl;
                     key = 3;
                     mVelY = 0;
                     mVelX = -SNAKE_VEL;
                     break;
                 case SDLK_RIGHT:
-                    std::cout << "right " <<  SDLK_RIGHT << std::endl;
                     key = 4;
                     mVelY = 0;
                     mVelX = +SNAKE_VEL;
@@ -126,7 +122,6 @@ bool Snake::move(int width, int height, SDL_Rect mouse) {
     
     // Left or right
     mPosX += mVelX;
-    //mPosX += SNAKE_VEL;
     
     // Check if the snake moved to far left or right
     if ((mPosX < 0) || (mPosX + SNAKE_WIDTH > width)) {
@@ -153,11 +148,7 @@ bool Snake::move(int width, int height, SDL_Rect mouse) {
     mCollisionBox.y = mPosY;
     
     if (collisionDetector(mCollisionBox, mouse)) {
-        //mPosX = mouseRandPos(width);
-        //mPosY = mouseRandPos(height);
         eat = true;
-        
-        std::cout << "I ate you" << std::endl;
         
         mCollisionBox.x = mPosX;
         mCollisionBox.y = mPosY;
@@ -176,8 +167,6 @@ void Snake::render(SDL_Renderer* renderer) {
         eat = false;
     }
     
-    //std::cout << snakeDots[0].x << std::endl;
-    
     // Draw snake
     int oldPosX = mPosX;
     int oldPosY = mPosY;
@@ -194,11 +183,6 @@ void Snake::render(SDL_Renderer* renderer) {
         SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
         SDL_RenderFillRect(renderer, &snakeDots[i]);
     }
-    /*
-    SDL_Rect snake = {mPosX - SNAKE_WIDTH, mPosY - SNAKE_HEIGHT, SNAKE_WIDTH, SNAKE_HEIGHT};
-    SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
-    SDL_RenderFillRect(renderer, &snake);
-    */
 }
 
 SDL_Rect Snake::returnRect() {

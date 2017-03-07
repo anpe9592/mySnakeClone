@@ -60,22 +60,17 @@ void Game::render() {
 }
 
 void Game::update() {
-    //tmp
-    SDL_Rect snakes;
-    snakes.x = 300;
-    snakes.y = 40;
-    snakes.w = 40;
-    snakes.h = 400;
-    //tmp
     // Set text to be rendered
     gameOverText.str(" ");
     
+    // Render text
     SDL_Color textColor = { 0xFF, 0xFF, 0xFF, 0xFF };
     if (!text.createImageFromString(mRenderer, mFont, gameOverText.str().c_str(), textColor)) {
         std::cout << "Unable to render game over texture!" << std::endl;
     }
     
-    if (!snake.move(mScreenWidth, mScreenHight, mouse.returnRect())) {  // Move the snake
+    // Move the snake
+    if (!snake.move(mScreenWidth, mScreenHight, mouse.returnRect())) {
         gameOverText.str("Game Over! \nPlay againg press Y? \nQuit press N?");
         
         // Render text
@@ -83,7 +78,6 @@ void Game::update() {
             std::cout << "Unable to render game over texture!" << std::endl;
         }
     }
-    //snake.move(mScreenWidth, mScreenHight); // Move the snake
     mouse.move(mScreenWidth, mScreenHight, snake.returnRect()); // Move the mouse
     
     // Clear screen

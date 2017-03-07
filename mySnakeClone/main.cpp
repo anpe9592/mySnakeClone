@@ -1,21 +1,4 @@
-/*
- TODO...
- 
- * [done]create a window. size 640 480. black background.
- * [done]draw a white dot. SNAKE.
- * [done]center the snake dot.
- * [done]make the dot move on it's own.
- * [done]make snake move on user input.
- * [done]stop snake dot from moving out of the window.
- * [done]draw dot at random place on the window. RAT.
- * [done]add collision detection.
- * [done]snake eat rat. rat disappear and draw new rat dot at random place.
- * [done]snake grow by one dot after eating rat.
- * [done]game over when snake hits wall or it self.
- * [done]add text to tell player its game over and how to restart
- * [done]start the game with the snake moving at random direction
 
-*/
 #include "game.h"
 
 //Screen dimension constants
