@@ -6,6 +6,7 @@
 #include <sstream>
 
 #include <SDL2/SDL.h>
+#include <SDL2_ttf/SDL_ttf.h>
 
 #include "snake.h"
 #include "mouse.h"
@@ -17,10 +18,11 @@ public:
     mRunning(true), mWindow(NULL), mRenderer(NULL), mTitle(title), mXpos(xpos), mYpos(ypos),
     mScreenWidth(screenWidth), mScreenHight(screenHight), mFlags(flags) {
         snake.setPos(screenWidth / 2, screenHight / 2);
-        text.loadTtfFiles();
     }
     
     ~Game() {}
+    
+    bool loadMedia();       // load media files
     
     bool init();            // Init SDL
     void render();          // Render objects
@@ -34,6 +36,7 @@ public:
 private:
     SDL_Window* mWindow;
     SDL_Renderer* mRenderer;
+    TTF_Font* mFont;
     
     bool mRunning;
     

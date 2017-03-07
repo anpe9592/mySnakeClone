@@ -1,5 +1,17 @@
 #include "game.h"
 
+// Load media files
+bool Game::loadMedia() {
+    // Open the font
+    mFont = TTF_OpenFont("PxPlus_IBM_VGA8.ttf", 28);
+    if (mFont == NULL) {
+        std::cout << "Failed to load the font PxPlus_IBM_VGA8! SDL_ttf Error: " << TTF_GetError() << std::endl;
+        return false;
+    }
+    
+    return true;
+}
+
 bool Game::init() {
     // Initialize SDL
     if (SDL_Init(SDL_INIT_VIDEO) == 0) {
@@ -17,7 +29,8 @@ bool Game::init() {
                 // Initialize renderer color
                 SDL_SetRenderDrawColor(mRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
                 
-                if (!text.init()) {
+                if (TTF_Init() == -1) {
+                    std::cout << "Unable to initialize SDL_ttf! SDL_ttf Error: " << TTF_GetError() << std::endl;
                     return false;
                 }
             } else {
@@ -60,8 +73,8 @@ void Game::update() {
     if (!snake.move(mScreenWidth, mScreenHight, mouse.returnRect())) {
         // Render text
         SDL_Color textColor = { 0xFF, 0xFF, 0xFF, 0xFF };
-        if (!text.createImageFromString(mRenderer, gameOverText.str().c_str(), textColor)) {
-            std::cout << "Unable to render score texture!" << std::endl;
+        if (!text.createImageFromString(mRenderer, mFont, gameOverText.str().c_str(), textColor)) {
+            std::cout << "Unable to render game over texture!" << std::endl;
         }
     }
     //snake.move(mScreenWidth, mScreenHight); // Move the snake
@@ -89,10 +102,14 @@ void Game::handleEvents() {
 void Game::clean() {
     text.deallocatesText();
     
+    TTF_CloseFont(mFont);
+    mFont = NULL;
+    
     SDL_DestroyRenderer(mRenderer);
     SDL_DestroyWindow(mWindow);
     mWindow = NULL;
     mRenderer = NULL;
     
+    TTF_Quit();
     SDL_Quit();
 }

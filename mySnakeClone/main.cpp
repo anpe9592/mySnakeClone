@@ -26,10 +26,14 @@ int main(int argc, const char * argv[]) {
     Game* g_game = new Game("Snake", 100, 100, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
     
     if (g_game->init()) {
-        while (g_game->running()) {
-            g_game->handleEvents();
-            g_game->update();
-            g_game->render();
+        if (g_game->loadMedia()) {
+            while (g_game->running()) {
+                g_game->handleEvents();
+                g_game->update();
+                g_game->render();
+            }
+        } else {
+            std::cout << "Failed to load media" << std::endl;
         }
     } else {
         std::cout << "Failed to initialize" << std::endl;
